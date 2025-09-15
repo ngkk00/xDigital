@@ -22,7 +22,7 @@ export const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME || 'xdigital',
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: [Developer, Skill, Task],
   migrations: [path.join(__dirname, 'migrations/*.js')],
   subscribers: [],
