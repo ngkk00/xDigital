@@ -55,9 +55,9 @@ async function startServer() {
       res.status(status).json({ message });
     });
     app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-      console.log(`📚 API Docs: http://localhost:${PORT}/api-docs`);
-      console.log(`🏥 Health check: http://localhost:${PORT}/api/health`);
+      console.log(`Server running on port ${PORT}`);
+      console.log(`API Docs: http://localhost:${PORT}/api-docs`);
+      console.log(`Health check: http://localhost:${PORT}/api/health`);
     });
   } catch (error) {
     console.error('Failed to start server:', error);
