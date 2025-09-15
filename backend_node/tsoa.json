@@ -1,0 +1,28 @@
+{
+  "entryFile": "src/index.ts",
+  "controllerPathGlobs": [
+    "src/controllers/*.ts"
+  ],
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "jsFileExtension": true,
+  "spec": {
+    "outputDirectory": "dist/docs",
+    "specVersion": 3,
+    "basePath": "/api",
+    "securityDefinitions": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "routes": {
+    "routesDir": "src/routes",
+    "routesFileName": "routes.ts",
+    "basePath": "/api",
+    "controllerImportPathTransformer": "relative",
+    "noImplicitAdditionalProperties": "silently-remove-extras",
+    "esm": true
+  }
+}

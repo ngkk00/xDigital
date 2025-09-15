@@ -1,0 +1,42 @@
+tr:hover {
+  background-color: #eef6ff;
+}
+/* Task List Styles */
+.task-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.task-list th,
+.task-list td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.task-list th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.skill-tag {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.1rem;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+.status-dropdown,
+.developer-dropdown {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
