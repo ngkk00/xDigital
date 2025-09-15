@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import TaskList from './components/TaskList';
-import TaskCreation from './components/TaskCreation';
+import TaskList from './pages/TaskList';
+import TaskCreation from './pages/TaskCreation';
 import type { Skill } from './types';
 import { api } from './services/api';
 import './App.css';

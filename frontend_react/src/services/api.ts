@@ -18,6 +18,9 @@ export const api = {
   assignDeveloper: (taskId: string, developerId: string): Promise<void> =>
     axios.post(`${API_BASE_URL}/tasks/assign`, { taskId, developerId }),
 
+  unAssignDeveloper: (taskId: string): Promise<void> =>
+    axios.post(`${API_BASE_URL}/tasks/${taskId}/unassign`),
+
   // Developers
   getDevelopers: (): Promise<Developer[]> => 
     axios.get(`${API_BASE_URL}/developers`).then(res => res.data),

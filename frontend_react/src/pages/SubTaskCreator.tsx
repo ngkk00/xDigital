@@ -50,6 +50,7 @@ const SubtaskCreator: React.FC<SubtaskCreatorProps> = ({ skills, onSubtasksChang
           className="subtask-input"
           rows={2} // you can adjust the number of rows
         />
+        <label>Required Skills (optional):</label>
         <div className="skills-checkbox">
           {skills.map((skill) => (
             <label key={skill.id} className="checkbox-label">

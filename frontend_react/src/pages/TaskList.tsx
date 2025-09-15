@@ -24,7 +24,6 @@ const TaskList: React.FC = () => {
             ]);
             setTasks(tasksData);
             setDevelopers(developersData);
-            console.log(tasksData)
         } catch (error) {
             console.error('Error loading data:', error);
         } finally {
@@ -35,13 +34,10 @@ const TaskList: React.FC = () => {
     const handleStatusChange = async (taskId: string, status: Task['status']) => {
         try {
             await api.updateTaskStatus(taskId, status);
-            // Add this to handle when child changes and parent will be updated
+            // Add this to handle when subtask changes and parent task will be updated
             const updatedTasks = await api.getTasks();
             setTasks(updatedTasks);
 
-            setTasks(prev => prev.map(task =>
-                task.id === taskId ? { ...task, status } : task
-            ));
             // Clear previous error
             setTaskErrors(prev => {
                 // destructure to take away property with key taskId and assign with _
@@ -56,10 +52,16 @@ const TaskList: React.FC = () => {
 
     const handleAssignDeveloper = async (taskId: string, developerId: string) => {
         try {
-            await api.assignDeveloper(taskId, developerId);
-            const developer = developers.find(d => d.id === developerId);
+            let developer = undefined
+            if (developerId) {
+                await api.assignDeveloper(taskId, developerId);
+                developer = developers.find(d => d.id === developerId) || undefined;
+
+            } else {
+                await api.unAssignDeveloper(taskId)
+            }
             setTasks(prev => prev.map(task =>
-                task.id === taskId ? { ...task, assignedDeveloper: developer } : task
+                task.id === taskId ? { ...task, assignedDeveloper: developer} : task
             ));
             // Clear previous error
             setTaskErrors(prev => {

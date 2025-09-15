@@ -6,8 +6,16 @@ import { RegisterRoutes } from './routes/routes.js';
 import { readFile } from 'fs/promises';
 import { DatabaseService } from './services/database-service.js';
 import { Request, Response, NextFunction } from 'express';
+import path from 'path';
 import dotenv from 'dotenv';
-dotenv.config();
+import { fileURLToPath } from 'url';
+
+// ES module workaround for __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+// Point to the main folder xDigital
+dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 

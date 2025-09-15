@@ -1,6 +1,15 @@
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import { Skill } from '../entities/Skill.js';
 import { AppDataSource } from '../data-source.js';
+import path from 'path';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+
+// ES module workaround for __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+// Point to the main folder xDigital
+dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
 export class LLMService {
     private static genAI: GoogleGenerativeAI;

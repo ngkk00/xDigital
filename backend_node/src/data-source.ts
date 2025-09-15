@@ -7,9 +7,11 @@ import { Skill } from './entities/Skill.js';
 import { Task } from './entities/Task.js';
 import dotenv from 'dotenv';
 
-dotenv.config();
+// ES module workaround for __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+// Point to the main folder xDigital
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
