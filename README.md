@@ -16,6 +16,21 @@ xDigital/
 - .env (Environment variables excluded from git)
 - docker-compose.yml (Docker compose configuration)
 
+## Libraries Justification
+
+### Backend
+
+- **Express.js**: Lightweight server framework.
+- **TypeScript**: Adds type safety.
+- **TypeORM**: ORM for managing SQL relations and supporting nested structures. Also handles data validation at the entity level (e.g., required fields, relationships).
+- **dotenv**: For environment variable management.
+
+### Frontend
+
+- **React**: Declarative and component-based UI library.
+- **TypeScript**: Adds type safety frontend development.
+- **Axios**: Promise-based HTTP client with better error handling than fetch.
+
 ## Getting Started
 ### Prerequisites
 
@@ -41,6 +56,16 @@ xDigital/
 - Access the frontend at http://localhost:3000 and backend API at http://localhost:3001
 
 NOTE: Any existing postgresql service on the host machine must be stop as docker postgresql will run the same port
+
+## System Design
+
+- ### Task & Subtask Relation
+    - Each task can have multiple subtasks.
+    - Subtasks can be nested (i.e., a subtask can have its own subtasks).
+    - A parent task cannot be marked as "Done" until all subtasks (recursively) are completed.
+- ### Validation logic
+    - On updating a task to "Done", the backend recursively checks all subtasks for their status as 'Done'.
+    - If any subtask is "To Do", the parent task cannot be marked as "Done".
 
 ## Features
 - The backend swagger file can be found in http://localhost:3001/api-docs/
