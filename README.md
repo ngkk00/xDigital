@@ -31,7 +31,7 @@ xDigital/
         GEMINI_API_KEY=<GEMINI_API_KEY>
     ```
     ** Note: If there is no or incorrect GEMINI API KEY, the backend will not be able to run.
-    
+
     ** Note: if running independent for backend, need to have ```DB_HOST=localhost``` and docker compose is ```DB_HOST=postgres``` due to the docker image
 
 - Start the app using docker compose (build and run)
@@ -43,6 +43,8 @@ xDigital/
 NOTE: Any existing postgresql service on the host machine must be stop as docker postgresql will run the same port
 
 ## Features
+- The backend swagger file can be found in http://localhost:3001/api-docs/
+
 - The database is pre-populated with the data below:
 
     | Developer | Skills             |
